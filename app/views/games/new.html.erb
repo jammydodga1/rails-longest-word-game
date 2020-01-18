@@ -1,0 +1,14 @@
+<h1>COUNTDOWN!</h1>
+<div>
+  <% @letters.each do |letter| %>
+    <%= letter %>
+    <% end %>
+</div>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters  %>
+  What is the longest word you can find?
+  <input type="text" name="guess" placeholder="Word">
+  <input type="submit">
+</form>
